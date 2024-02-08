@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <table >
+        <td >
+            <form action="insert.php" method="post">
+                <label for="nome">Nome:</label><br>
+                <input type="text" name="Nome"><br>
+                <label for="CodAttore">CodAttore:</label><br>
+                <input type="number" name="CodAttore"><br>
+                <label for="AnnoNascita">Anno di Nascita:</label><br>
+                <input type="number" name="AnnoNascita"><br>
+                <label for="Nazionalita">Nazionalita:</label><br>
+                <input type="text" name="Nazionalita">
+                <br><br>
+                <input type="submit" value="Submit">
+            </form>
+        </td>
+
+        <td>
+            <form action="delete.php" method="post">
+                <label for="codProiezione">CodProiezione:</label><br>
+                <input type="number" name="CodProiezione">
+                <br><br>
+                <input type="submit" value="Submit">
+            </form>
+        </td>
+        <td>
+            <form action="update.php" method="post">
+                <label for="voto">Voto:</label><br>
+                <input type="number" name="voto"><br>
+                <label for="id">id recensione:</label><br>
+                <input type="number" name="id">
+                <br><br>
+                <input type="submit" value="Submit">
+            </form>
+        </td>
+    </table>
+
+</body>
+
+</html>
