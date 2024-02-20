@@ -4,6 +4,7 @@
     $username = "root";
     $password = "";
     $dbname = "cinemafinale";
+    mysqli_report(MYSQLI_REPORT_OFF);  // Serve a disabilitare le eccezioni nelle nuove versioni di PHP
 
     // Creazione della connessione al database
     $conn = new mysqli($servername, $username, $password, $dbname);
