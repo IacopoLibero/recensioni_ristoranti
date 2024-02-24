@@ -17,15 +17,13 @@
                 <h5 class="card-title">seleziona una tabella a visualizzare</h5>
                 <form method="POST" action="../pagine_ph/scelta_tabella.php">
                     <div class="btn-group">
-                        <button type="button" class="btn btn-success dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                          cliccami
-                        </button>
-                        <ul class="dropdown-menu">
-                          <li><a class="dropdown-item" name="attori">attori</a></li>
-                          <li><a class="dropdown-item" name="film">film</a></li>
-                          <li><a class="dropdown-item" name="recensioni">recensioni</a></li>
-                          <li><a class="dropdown-item" name="sale">sale</a></li>
-                        </ul>
+                        
+                        <select name="scelta" class="btn btn-success dropdown-toggle text-center" data-bs-toggle="dropdown" aria-expanded="false">
+                            <option value="attori">attori</option>
+                            <option value="film">film</option>
+                            <option value="recensioni">recensioni</option>
+                            <option value="sale">sale</option>
+                        </select>
                     </div>
                     <br>
                     <hr>
