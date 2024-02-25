@@ -14,11 +14,12 @@
     <body>
         
         <div class="row">
-            <div class="card mx-auto my-5" style="width: 18rem;">
+            <div class="card mx-auto my-5" style="width: 18rem; border-color: blue; border-style: solid;">
                 <div class="card-body text-center">
                 <h5 class="card-title">Seleziona i campi da visualizzare</h5>
                 <form method="POST" action="../pagine_ph/mostra_film.php">
                     <table class="mx-auto text-center">
+                        <p>Seleziona almeno un campo</p>
                         <tr>
                             <td>CodFilm</td>
                             <td><input type="checkbox" name="CodFilm"></td>
@@ -46,10 +47,28 @@
                     </table>
                     <br>
                        
-                    <input type="submit" name="submit" class="btn btn-primary" value="mostra tabella modificata">
+                    <input type="submit" name="submit" id="invio" class="btn btn-primary" value="mostra tabella modificata">
                 </form>
                 </div>
             </div>
         </div>
     </body>
 </html>
+
+<script>
+    document.getElementById("invio").addEventListener('click', () => {
+        const checkboxes = document.querySelectorAll('input[type="checkbox"]')
+        let checked = false;
+        checkboxes.forEach(checkbox => {
+            if (checkbox.checked) {
+                checked = true;
+            }
+        });
+
+        if (!checked) {
+            alert("Seleziona almeno una checkbox");
+            event.preventDefault(); //evita l'invio del form
+        }
+    });
+    
+</script>

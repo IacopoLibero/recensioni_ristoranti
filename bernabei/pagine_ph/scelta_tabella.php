@@ -13,6 +13,7 @@ include('connessione.php');  // Questo include la connessione in modo da poter u
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="..\stylesheet.css">
 </head>
     <body>
         <div class="text-center">
@@ -28,7 +29,7 @@ include('connessione.php');  // Questo include la connessione in modo da poter u
                 if (mysqli_num_rows($result) > 0) 
                 {
                     // Inizia la tabella HTML
-                    echo "<table>";
+                    echo "<table class='text-center mx-auto my-3'>";
                     
                     // Stampa la riga dell'intestazione con i nomi dei campi
                     echo "<tr>";

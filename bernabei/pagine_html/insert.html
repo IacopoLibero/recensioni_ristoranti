@@ -12,23 +12,23 @@
 </head>
 <body>
     <div class="row">
-        <div class="card mx-auto my-5" style="width: 18rem;">
-            <div class="card-body text-center">
+        <div class="card mx-auto my-5" style="width: 18rem; border-color: blue; border-style: solid;" >
+            <div class="card-body text-center" >
             <h5 class="card-title">Inserisci attore</h5>
             <form method="POST" action="../pagine_ph/insert.php">
                 Codice attore: <br>
-                <input type="number" name="codattore" placeholder="1"><br><br>
+                <input type="number" name="codattore" required placeholder="1"><br><br>
         
                 Nome: <br>
-                <input type="text" name="nome" placeholder="Mario"><br><br>
+                <input type="text" name="nome" required placeholder="Mario"><br><br>
         
                 Anno di nascita: <br>
-                <input type="number" name="annonascita" placeholder="1960"><br><br>
+                <input type="number" name="annonascita" required placeholder="1960"><br><br>
         
                 Nazionalità: <br>
-                <input type="text" name="nazionalita" placeholder="italia"><br><br>
-        
-                <input type="submit" class="btn btn-primary" value="Inserisci">
+                <input type="text" name="nazionalita" required placeholder="italia"><br><br>
+                <hr>
+                <input type="submit" class="btn btn-primary"  required value="Inserisci">
             </form>
             </div>
         </div>

@@ -14,21 +14,21 @@
 </head>
 <body>
     <div class="row">
-        <div class="card mx-auto my-5" style="width: 18rem;">
+        <div class="card mx-auto my-5" style="width: 18rem;border-color: blue; border-style: solid;">
             <div class="card-body text-center">
                 <h5 class="card-title">Elimina/aggiorna recensione</h5>
                 <form action="../pagine_ph/scelta.php" method="post">
                     <label for="id recensione">id recensione:</label><br>
-                    <input type="number" name="id"><br>
+                    <input type="number" required name="id" placeholder="1"><br>
                     
                     <label for="agg">clicca qui se vuoi aggiornare il voto</label>
                     <input id="agg" type="checkbox" name="agg">
                     <br>
                     <div style="display:none;" id="nv">
                         <label for="voto">nuovo voto:</label><br>
-                        <input type="number" min="1" max="5" name="voto"><br><br>
+                        <input type="number" required min="1" max="5" name="voto" placeholder="5"><br><br>
                     </div>
-            
+                    <hr>
                     <input type="submit" class="btn btn-primary" value="elimina/aggiorna">
                 </form>
             </div>

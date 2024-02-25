@@ -12,16 +12,16 @@
 </head>
 <body>
     <div class="row">
-        <div class="card mx-auto my-5     " style="width: 18rem;">
+        <div class="card mx-auto my-5     " style="width: 18rem; border-color: blue; border-style: solid;">
             <div class="card-body text-center">
                 <h5 class="card-title">Aggiorna proiezione</h5>
                 <form method="POST" action="../pagine_ph/update.php">
                     ID recensione: <br>
-                    <input type="number" name="idrecensione" placeholder="1"><br><br>
+                    <input type="number" name="idrecensione"  required placeholder="1"><br><br>
             
                     Voto: <br>
-                    <input type="number" name="voto" placeholder="5"><br><br>
-            
+                    <input type="number" name="voto" min="1" max="5"  required placeholder="5"><br><br>
+                    <hr>
                     <input type="submit" class="btn btn-primary" value="Aggiorna">
                 </form>
             </div>

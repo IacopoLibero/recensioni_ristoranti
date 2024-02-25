@@ -14,12 +14,13 @@
 </head>
 <body>
     <div class="row">
-        <div class="card mx-auto my-5     " style="width: 18rem;">
+        <div class="card mx-auto my-5     " style="width: 18rem;border-color: blue; border-style: solid;">
             <div class="card-body text-center">
                 <h5 class="card-title">Elimina proiezione</h5>
                 <form method="POST" action="../pagine_ph/delete.php">
                     Codice proiezione: <br>
-                    <input type="number" name="codproiezione" placeholder="1"><br><br>
+                    <input type="number" name="codproiezione"  required placeholder="1"><br><br>
+                    <hr>
                     <input type="submit" class="btn btn-primary" value="Elimina">
                 </form>
             </div>

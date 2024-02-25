@@ -8,12 +8,13 @@ include('connessione.php');  // Questo include la connessione in modo da poter u
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../stylesheet.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
+
+        <link rel="stylesheet" href="..\stylesheet.css">
 </head>
     <body>
         <div class="text-center">
@@ -22,6 +23,7 @@ include('connessione.php');  // Questo include la connessione in modo da poter u
                 if (isset($_POST['submit'])) 
                 {
                     $campi="";
+                    // Verifica quali campi sono stati selezionati
                     if(isset($_POST['CodFilm']) && $_POST['CodFilm'] != "")
                     {
                         $campi = $campi . "CodFilm, ";
@@ -51,7 +53,7 @@ include('connessione.php');  // Questo include la connessione in modo da poter u
                     $result = mysqli_query($conn, $query);
                 }
                 // Se non è stato inviato un modulo, esegui una query standard
-                else
+                else 
                 {
                     $query = "SELECT * FROM film";
                     $result = mysqli_query($conn, $query);
