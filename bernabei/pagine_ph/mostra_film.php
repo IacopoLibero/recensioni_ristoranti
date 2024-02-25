@@ -8,6 +8,7 @@ include('connessione.php');  // Questo include la connessione in modo da poter u
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="../stylesheet.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
@@ -17,18 +18,50 @@ include('connessione.php');  // Questo include la connessione in modo da poter u
     <body>
         <div class="text-center">
             <?php
-                // Ottieni il valore dal form
-                $scelta = $_POST['scelta'];
-                
-                // Query per recuperare tutte le righe dalla tabella scelta
-                $query = "SELECT * FROM $scelta";
-                $result = mysqli_query($conn, $query);
+                // Verifica se è stato inviato un modulo
+                if (isset($_POST['submit'])) 
+                {
+                    $campi="";
+                    if(isset($_POST['CodFilm']) && $_POST['CodFilm'] != "")
+                    {
+                        $campi = $campi . "CodFilm, ";
+                    }
+                    if(isset($_POST['Titolo']) && $_POST['Titolo'] != "")
+                    {
+                        $campi = $campi . "Titolo, ";
+                    }
+                    if(isset($_POST['AnnoProduzione']) && $_POST['AnnoProduzione'] != "")
+                    {
+                        $campi = $campi . "AnnoProduzione, ";
+                    }
+                    if(isset($_POST['Nazionalita']) && $_POST['Nazionalita'] != "")
+                    {
+                        $campi = $campi . "Nazionalita, ";
+                    }
+                    if(isset($_POST['Regista']) && $_POST['Regista'] != "")
+                    {
+                        $campi = $campi . "Regista, ";
+                    }
+                    if(isset($_POST['Genere']) && $_POST['Genere'] != "")
+                    {
+                        $campi = $campi . "Genere, ";
+                    }
+                    $campi = substr($campi, 0, -2); // Rimuove l'ultima virgola e lo spazio
+                    $query = "SELECT $campi FROM film";
+                    $result = mysqli_query($conn, $query);
+                }
+                // Se non è stato inviato un modulo, esegui una query standard
+                else
+                {
+                    $query = "SELECT * FROM film";
+                    $result = mysqli_query($conn, $query);
+                }
 
                 // Verifica se ci sono righe restituite dalla query
                 if (mysqli_num_rows($result) > 0) 
                 {
                     // Inizia la tabella HTML
-                    echo "<table>";
+                    echo "<table class='mx-auto text-center'>";
                     
                     // Stampa la riga dell'intestazione con i nomi dei campi
                     echo "<tr>";
@@ -60,13 +93,16 @@ include('connessione.php');  // Questo include la connessione in modo da poter u
                 {
                     header("Location: ..\status\fail.html"); 
                 }
-            ?>
+                ?>
         </div>
-        
         <hr>
-        <div class="text-center">
-            <a href="../index.html" class="btn btn-primary text-center my-3">home</a>
+        <div class="row">
+            <div class="text-center col-6">
+                <a href="../index.html" class="btn btn-primary text-center my-2">home</a>
+            </div>
+            <div class="text-center col-6">
+                <a href="..\pagine_html\film_e_scelta_campi.html" class="btn btn-primary text-center my-2">seleziona campi</a>
+            </div>
         </div>
-        
     </body>
 </html>
