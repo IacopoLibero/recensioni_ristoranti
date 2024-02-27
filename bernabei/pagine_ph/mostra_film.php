@@ -99,7 +99,7 @@ include('connessione.php');  // Questo include la connessione in modo da poter u
                 {
                     header("Location: ..\status\\fail.html");
                 }
-                ?>
+            ?>
         </div>
         <hr>
         <div class="row">

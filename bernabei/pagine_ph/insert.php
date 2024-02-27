@@ -13,8 +13,7 @@
 
     if ($result->affected_rows > 0) 
     {
-        header("Location: ..\status\fail.html");
-        exit;
+        header("Location: ..\status\\fail.html");
     }
     else
     {
@@ -24,14 +23,9 @@
         if ($conn->query($sql)) 
         {
             header("Location: ..\status\success.html");
-            exit;
         } 
         else 
         {
             header("Location: ..\status\\fail.html");
-            exit;
         }
-    }   
-    header("Location: ..\status\\fail.html"); 
-    exit;
-?>
+    }

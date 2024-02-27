@@ -31,4 +31,3 @@
     {
         header("Location: ..\status\\fail.html");
     }
-?>

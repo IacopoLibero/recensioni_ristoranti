@@ -30,4 +30,3 @@
         // L'idRecensione non esiste nel database, redirect a fail.html
         header("Location: ..\status\\fail.html");
     }
-?>
