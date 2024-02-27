@@ -23,12 +23,12 @@
             }
             else 
             {
-                header("Location: ..\status\fail.html");
+                header("Location: ..\status\\fail.html");
             }
         }
     } 
     else 
     {
-        header("Location: ..\status\fail.html");
+        header("Location: ..\status\\fail.html");
     }
 ?>

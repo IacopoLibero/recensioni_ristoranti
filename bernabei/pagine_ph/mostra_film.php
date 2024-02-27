@@ -97,7 +97,7 @@ include('connessione.php');  // Questo include la connessione in modo da poter u
                 } 
                 else 
                 {
-                    header("Location: ..\status\fail.html"); 
+                    header("Location: ..\status\\fail.html");
                 }
                 ?>
         </div>

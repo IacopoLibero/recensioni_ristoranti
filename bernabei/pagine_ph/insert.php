@@ -28,10 +28,10 @@
         } 
         else 
         {
-            header("Location: ..\status\fail.html");
+            header("Location: ..\status\\fail.html");
             exit;
         }
     }   
-    header("Location: ..\status\fail.html"); 
+    header("Location: ..\status\\fail.html"); 
     exit;
 ?>

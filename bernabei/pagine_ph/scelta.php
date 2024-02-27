@@ -22,18 +22,18 @@
             if ($conn->query($sql)) 
             {
                 // Aggiornamento riuscito, redirect a success.html
-                header("Location: ../status/success.html");
+                header("Location: ..\status\success.html");
             } 
             else 
             {
                 // Errore nell'esecuzione dell'aggiornamento, redirect a fail.html
-                header("Location: ../status/fail.html");
+                header("Location: ..\status\\fail.html");
             }
         } 
         else 
         {
             // L'idRecensione non esiste nel database, redirect a fail.html
-            header("Location: ../status/fail.html");
+            header("Location: ..\status\\fail.html");
         }
     }
     else
@@ -59,13 +59,13 @@
                 }
                 else 
                 {
-                    header("Location: ..\status\fail.html");
+                    header("Location: ..\status\\fail.html");
                 }
             }
         } 
         else 
         {
-            header("Location: ..\status\fail.html");
+            header("Location: ..\status\\fail.html");
         }
     }
 ?>
