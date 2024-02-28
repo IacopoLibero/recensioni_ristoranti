@@ -10,13 +10,24 @@ $password = $_POST['pw'];
 $checkQuery = "SELECT * FROM utenti WHERE username = $username";
 $result = $conn->query($checkQuery);
 
-if ($result->num_rows > 0) 
+
+while($row = $result->fetch_assoc()) 
 {
-    echo "<script>username_o_pw_err()</script>";
-} else 
-{
-    header("Location: ..\pagine_html\dashboard.html");
-}
+    if ($row['password'] == $password) 
+    {
+        session_start();
+        $_SESSION['username'] = $username;
+        $_SESSION['pw'] = $password;
+        header("Location: ..\pagine_html\dashboard.html");
+    } 
+    else 
+    {
+        echo "<script language='JavaScript'>n"; 
+        echo "alert('Username o password errati');n"; 
+        echo "</script>"; 
+        header("Location: ..\pagine_html\login.html");
+    }
+}    
+
 ?>
 
-<script type="text/javascript" src="..\script.js"></script>
