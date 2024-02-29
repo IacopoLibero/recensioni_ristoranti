@@ -2,32 +2,30 @@
 <?php
 
 include('../pagine_ph/connessione.php');  // Questo richiama la connessione quindi possiamo usare $conn in questa pagina
-
+session_start();
 $username = $_POST['username'];
 $password = $_POST['pw'];
 
-
-$checkQuery = "SELECT * FROM utenti WHERE username = $username";
+$checkQuery = "SELECT * FROM utente WHERE username = '$username'";
 $result = $conn->query($checkQuery);
 
-
-while($row = $result->fetch_assoc()) 
+if ($result->num_rows > 0) 
 {
+    $row = $result->fetch_assoc();
     if ($row['password'] == $password) 
     {
-        session_start();
-        $_SESSION['username'] = $username;
-        $_SESSION['pw'] = $password;
+        echo "<script>alert('Login effettuato');</script>";
         header("Location: ..\pagine_html\dashboard.html");
     } 
     else 
     {
-        echo "<script language='JavaScript'>n"; 
-        echo "alert('Username o password errati');n"; 
-        echo "</script>"; 
-        header("Location: ..\pagine_html\login.html");
+        $_SESSION['login'] = "Password errata";
+        header("Location: stato.php");
     }
-}    
-
+}
+else 
+{
+    $_SESSION['login'] = "Username non trovato";
+    header("Location: stato.php");
+}
 ?>
-
