@@ -12,13 +12,13 @@
         </script>
     </head>
     <body>
-        <div class="row text-caenter">
+        <div class="row text-center mx-auto">
             <div class="col-12 ">
                 <?php
                     session_start();
                     $message = $_SESSION['login'];
                     echo "<h1>$message</h1>";
-                    echo "<a href='..\index.html' class='btn btn-primary'>torna al login</a>";
+                    echo "<a href='..\index.html' class='btn btn-primary'>Torna al login</a>";
                 ?>
             </div>
         </div>

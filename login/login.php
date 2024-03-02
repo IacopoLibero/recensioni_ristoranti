@@ -5,7 +5,8 @@ include('../pagine_ph/connessione.php');  // Questo richiama la connessione quin
 session_start();
 $username = $_POST['username'];
 $password = $_POST['pw'];
-
+$_SESSION['log'] = false;
+$_SESSION['user'] = "";
 $checkQuery = "SELECT * FROM utente WHERE username = '$username'";
 $result = $conn->query($checkQuery);
 
@@ -14,9 +15,10 @@ if ($result->num_rows > 0)
     $row = $result->fetch_assoc();
     if ($row['password'] == $password) 
     {
-        echo "<script>alert('Login effettuato');</script>";
-        header("Location: ..\pagine_html\dashboard.html");
-    } 
+        header("Location: ..\pagine_html\dashboard.php");
+        $_SESSION['log'] = true;
+        $_SESSION['user'] = $username;
+    }
     else 
     {
         $_SESSION['login'] = "Password errata";
