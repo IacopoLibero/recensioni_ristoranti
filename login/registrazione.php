@@ -12,6 +12,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"> 
     <title>Document</title>
 </head>
 <body>
@@ -21,21 +22,27 @@
             <h5 class="card-title">Registrazione</h5>
             <form method="POST" action="./scriptregistrazione.php">
                 Nome: <br>
-                <input type="text" name="nome" required placeholder="Mario"><br><br>
+                <input type="text" name="nome" class="form-control" required placeholder="Mario"><br>
                 
                 Cognome: <br>
-                <input type="text" name="cognome" required placeholder="Rossi"><br><br>
+                <input type="text" name="cognome" class="form-control" required placeholder="Rossi"><br>
 
                 E-mail: <br>
-                <input type="email" name="email" required placeholder="example@gmail.com"><br><br>
+                <input type="email" name="email" class="form-control" required placeholder="example@gmail.com"><br>
 
                 Username: <br>
-                <input type="text" name="username" required placeholder="username1"><br><br>
+                <input type="text" name="username" class="form-control" required placeholder="username1"><br>
         
                 Password: <br>
-                <input type="password" name="pw" required placeholder="password"><br><br>
+                <div class="input-group">
+                    <input type="password" name="pw" id="psw" required placeholder="password" class="form-control">
+                    <span class="input-group-text" >
+                        <i class="bi bi-eye-slash-fill" id="eye"></i>
+                    </span>
+                </div>
                 <?php
                     session_start();
+                    echo "<br>";
                     if (isset($_SESSION['status'])) 
                     {
                         echo "<p class='text-danger'>".$_SESSION['status']."</p>";
@@ -51,3 +58,20 @@
     </div>
 </body>
 </html>
+
+<script>
+    var eye = document.getElementById("eye");
+    var pw = document.getElementById("psw");
+    eye.addEventListener("click", function(){
+        if(pw.type == "password")
+        {
+            pw.type = "text";
+            eye.setAttribute("class", "bi bi-eye-fill");
+        }
+        else
+        {
+            pw.type = "password";
+            eye.setAttribute("class", "bi bi-eye-slash-fill");
+        }
+    });
+</script>

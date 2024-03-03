@@ -22,8 +22,8 @@
         session_start();
         if ($_SESSION['user']== false) 
         {
-            $_SESSION['login'] = "Devi fare il login per accedere a questa pagina";
-            header("Location: ../login/stato.php");
+            $_SESSION['status'] = "Devi fare il login per accedere a questa pagina";
+            header("Location: ..\index.php");
         }
     ?>
     <div class=" text-light bg-dark">
@@ -39,7 +39,7 @@
                 <div class="card-body">
                     <h5 class="card-title">
                         <?php
-                            echo "<p>ciao @".$_SESSION['user']."</p>";
+                            echo "<p>Ciao @".$_SESSION['user']."</p>";
                         ?>
                     </h5>
                     <a href="../login/logout.php" class="btn btn-primary">Logout</a>
