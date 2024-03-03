@@ -15,19 +15,19 @@ if ($result->num_rows > 0)
     $row = $result->fetch_assoc();
     if ($row['password'] == $password) 
     {
-        header("Location: ..\pagine_html\dashboard.php");
+        header("Location: ..\pagine_ph\dashboard.php");
         $_SESSION['log'] = true;
         $_SESSION['user'] = $username;
     }
     else 
     {
-        $_SESSION['login'] = "Password errata";
-        header("Location: stato.php");
+        $_SESSION['status'] = "Password errata";
+        header("Location: ..\index.php");
     }
 }
 else 
 {
-    $_SESSION['login'] = "Username non trovato";
-    header("Location: stato.php");
+    $_SESSION['status'] = "Username non trovato";
+    header("Location: ..\index.php");
 }
 ?>

@@ -18,25 +18,33 @@
     <div class="row">
         <div class="card mx-auto my-5" style="width: 18rem; border-color: blue; border-style: solid;" >
             <div class="card-body text-center" >
-            <h5 class="card-title">Registrazione</h5>
-            <form method="POST" action="./registrazione.php">
-                Nome: <br>
-                <input type="text" name="nome" required placeholder="Mario"><br><br>
-                
-                Cognome: <br>
-                <input type="text" name="cognome" required placeholder="Rossi"><br><br>
-
-                E-mail: <br>
-                <input type="email" name="email" required placeholder="example@gmail.com"><br><br>
-
+            
+            <h5 class="card-title">Login</h5>
+            <form method="POST" action="./login/login.php">
                 Username: <br>
                 <input type="text" name="username" required placeholder="username1"><br><br>
         
                 Password: <br>
                 <input type="password" name="pw" required placeholder="password"><br><br>
-                <p>sei già registrato? clicca <a href="..\index.html">qui</a></p>
+                <?php
+                    session_start();
+                    if(isset($_SESSION['status']))
+                    {
+                        if ($_SESSION['status']=="Password errata"||$_SESSION['status']=="Username non trovato") 
+                        {
+                            echo "<p class='text-danger'>".$_SESSION['status']."</p>";
+                            session_unset();
+                        }
+                        else if($_SESSION['status'] == "Registrazione effettuata")
+                        {
+                            echo "<p class='text-success'>".$_SESSION['status']."</p>";
+                            session_unset();
+                        }
+                    }                 
+                ?>
+                <p>non sei registrato? clicca <a href="./login/registrazione.php">qui</a></p>
                 <hr>
-                <input type="submit" class="btn btn-primary"  value="Registrami">
+                <input type="submit" class="btn btn-primary"  required value="Inserisci">
             </form>
             </div>
         </div>

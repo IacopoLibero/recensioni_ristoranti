@@ -104,7 +104,7 @@ include('connessione.php');  // Questo include la connessione in modo da poter u
         <hr>
         <div class="row">
             <div class="text-center col-6">
-                <a href="../index.html" class="btn btn-primary text-center my-2">home</a>
+                <a href="dashboard.php" class="btn btn-primary text-center my-2">home</a>
             </div>
             <div class="text-center col-6">
                 <a href="..\pagine_html\film_e_scelta_campi.html" class="btn btn-primary text-center my-2">seleziona campi</a>
