@@ -45,13 +45,13 @@
                     echo "<br>";
                     if (isset($_SESSION['status'])) 
                     {
-                        echo "<p class='text-danger'>".$_SESSION['status']."</p>";
+                        echo "<label class='text-danger'>".$_SESSION['status']."</label>";
                         session_unset();
                     }
                 ?>
                 <p>sei già registrato? clicca <a href="..\index.php">qui</a></p>
                 <hr>
-                <input type="submit" class="btn btn-primary"  value="Registrami">
+                <input type="submit" class="btn btn-primary"  value="Registrati">
             </form>
             </div>
         </div>

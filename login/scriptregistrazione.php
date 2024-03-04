@@ -8,9 +8,10 @@
     $username = $_POST['username'];
     $password = $_POST['pw'];
 
+    # Controllo se l'utente è già registrato
     $checkQuery = "SELECT * FROM utente WHERE username = '$username'";
     $result = $conn->query($checkQuery);
-    
+    # Se non è registrato lo inserisco nel database, altrimenti mostro un errore
     if($result->num_rows == 0)
     {
         $query = "INSERT INTO utente (username,password,nome,cognome,email) VALUES ('$username','$password','$nome', '$cognome', '$email')";
@@ -19,6 +20,7 @@
             $_SESSION['status'] = "Registrazione effettuata";
             header("Location: ..\index.php");
         } 
+        
         else 
         {
             $_SESSION['status'] = "Email gia esistente";

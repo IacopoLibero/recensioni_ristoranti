@@ -41,19 +41,20 @@
                         echo "<br>";
                         if($_SESSION['status'] == "Registrazione effettuata")
                         {
-                            echo "<p class='text-success'>".$_SESSION['status']."</p>";
+                            echo "<label class='text-success'>".$_SESSION['status']."</label>";
                             session_unset();
                         }
                         else
                         {
-                            echo "<p class='text-danger'>".$_SESSION['status']."</p>";
+                            echo "<label class='text-danger'>".$_SESSION['status']."</label>";
                             session_unset();
                         }
                     }                 
                 ?>
+                <br>
                 <p>non sei registrato? clicca <a href="./login/registrazione.php">qui</a></p>
                 <hr>
-                <input type="submit" class="btn btn-primary"  required value="Inserisci">
+                <input type="submit" class="btn btn-primary"  required value="Accedi">
             </form>
             </div>
         </div>
