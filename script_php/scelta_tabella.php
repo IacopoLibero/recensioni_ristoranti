@@ -69,7 +69,7 @@ include('connessione.php');  // Questo include la connessione in modo da poter u
         
         <hr>
         <div class="text-center">
-            <a href=".\dashboard.php" class="btn btn-primary text-center my-3">home</a>
+            <a href="..\front-end\dashboard.php" class="btn btn-primary text-center my-3">home</a>
         </div>
         
     </body>

@@ -1,6 +1,6 @@
 <?php
     session_start();
-    include('..\pagine_ph\connessione.php');  // Questo richiama la connessione quindi possiamo usare $conn in questa pagina
+    include('..\script_php\connessione.php');  // Questo richiama la connessione quindi possiamo usare $conn in questa pagina
 
     $nome = $_POST['nome'];
     $cognome = $_POST['cognome'];

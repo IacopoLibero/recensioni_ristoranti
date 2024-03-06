@@ -1,5 +1,5 @@
 <?php
-include('..\pagine_ph\connessione.php');  // Questo include la connessione in modo da poter utilizzare $conn in questa pagina
+include('..\script_php\connessione.php');  // Questo include la connessione in modo da poter utilizzare $conn in questa pagina
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,7 +24,7 @@ include('..\pagine_ph\connessione.php');  // Questo include la connessione in mo
         <div class="card mx-auto my-5     " style="width: 18rem;border-color: blue; border-style: solid;">
             <div class="card-body text-center">
                 <h5 class="card-title">Elimina proiezione</h5>
-                <form method="POST" action="../pagine_ph/delete.php">
+                <form method="POST" action="../script_php/delete.php">
                     Codice proiezione: <br><br>
                     <?php
                         $query = "SELECT CodProiezione FROM proiezioni";

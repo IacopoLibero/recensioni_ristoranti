@@ -1,5 +1,5 @@
 <?php
-include('..\pagine_ph\connessione.php');  // Questo include la connessione in modo da poter utilizzare $conn in questa pagina
+include('..\script_php\connessione.php');  // Questo include la connessione in modo da poter utilizzare $conn in questa pagina
 ?>
 
 <!DOCTYPE html>
@@ -23,7 +23,7 @@ include('..\pagine_ph\connessione.php');  // Questo include la connessione in mo
         <div class="card mx-auto my-5     " style="width: 18rem; border-color: blue; border-style: solid;">
             <div class="card-body text-center">
                 <h5 class="card-title">Aggiorna voto</h5>
-                <form method="POST" action="../pagine_ph/update.php">
+                <form method="POST" action="../script_php/aggiorna_recensione.php">
                     ID voto: <br>
                     <?php
                         $query = "SELECT IDRecensione,Voto FROM recensioni";
@@ -41,7 +41,7 @@ include('..\pagine_ph\connessione.php');  // Questo include la connessione in mo
                             mysqli_data_seek($result, 0); // Reimposta il puntatore del risultato all'inizio
                             while ($row = mysqli_fetch_assoc($result)) 
                             {
-                                echo "<option value='".$row['IDRecensioni']."'>".$row['IDRecensione'].' voto:'.$row['Voto']."</option>";
+                                echo "<option value='".$row['IDRecensione']."'>".'ID: '.$row['IDRecensione'].' voto: '.$row['Voto']."</option>";
                             }
                             
                             // Chiude la tabella HTML

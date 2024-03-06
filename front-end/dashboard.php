@@ -54,7 +54,7 @@
             <div class="card" sty text-centerle="width: 18rem;" style="border-color: blue; border-style: solid;">
                 <div class="card-body mx-auto">
                     <h5 class="card-title ">Inserisci nuovo attore</h5>
-                    <a href="..\pagine_html\insert.html" class="btn btn-primary">go</a>
+                    <a href="..\front-end\inserisci_attore.html" class="btn btn-primary">go</a>
                 </div>
             </div>
         </div>
@@ -63,7 +63,7 @@
             <div class="card" sty text-centerle="width: 18rem;" style="border-color: blue; border-style: solid;">
                 <div class="card-body">
                     <h5 class="card-title">Elimina proiezione</h5>
-                    <a href="..\pagine_html\elimina.php" class="btn btn-primary">go</a>
+                    <a href="..\front-end\elimina_proiezione.php" class="btn btn-primary">go</a>
                 </div>
             </div>
         </div>
@@ -71,7 +71,7 @@
             <div class="card" sty text-centerle="width: 18rem;" style="border-color: blue; border-style: solid;">
                 <div class="card-body">
                     <h5 class="card-title">Aggiorna recensione</h5>
-                    <a href="..\pagine_html\aggiorna.php" class="btn btn-primary">go</a>
+                    <a href="..\front-end\aggiorna_rec.php" class="btn btn-primary">go</a>
                 </div>
             </div>
         </div>
@@ -80,7 +80,7 @@
             <div class="card" sty text-centerle="width: 18rem;" style="border-color: blue; border-style: solid;">
                 <div class="card-body">
                     <h5 class="card-title">Aggiorna o elimina recensione</h5>
-                    <a href="..\pagine_html\scelta.html" class="btn btn-primary">go</a>
+                    <a href="..\front-end\scelta.php" class="btn btn-primary">go</a>
                 </div>
             </div>
         </div>
@@ -89,7 +89,7 @@
             <div class="card" sty text-centerle="width: 18rem;" style="border-color: blue; border-style: solid;">
                 <div class="card-body">
                     <h5 class="card-title">Visualizza tabelle</h5>
-                    <a href="..\pagine_html\scelta_tabella.html" class="btn btn-primary">go</a>
+                    <a href="..\front-end\scelta_tabella.html" class="btn btn-primary">go</a>
                 </div>
             </div>
         </div>
@@ -98,7 +98,7 @@
             <div class="card" sty text-centerle="width: 18rem;" style="border-color: blue; border-style: solid;">
                 <div class="card-body">
                     <h5 class="card-title">Visualizza film e scelta campi</h5>
-                    <a href="..\pagine_ph\mostra_film.php" class="btn btn-primary">go</a>
+                    <a href="..\front-end\mostra_film.php" class="btn btn-primary">go</a>
                 </div>
             </div>
         </div>

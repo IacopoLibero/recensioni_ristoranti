@@ -1,5 +1,5 @@
 <?php
-include('connessione.php');  // Questo include la connessione in modo da poter utilizzare $conn in questa pagina
+include('..\script_php\connessione.php');  // Questo include la connessione in modo da poter utilizzare $conn in questa pagina
 ?>
 
 <!DOCTYPE html>
@@ -107,7 +107,7 @@ include('connessione.php');  // Questo include la connessione in modo da poter u
                 <a href="dashboard.php" class="btn btn-primary text-center my-2">home</a>
             </div>
             <div class="text-center col-6">
-                <a href="..\pagine_html\film_e_scelta_campi.html" class="btn btn-primary text-center my-2">seleziona campi</a>
+                <a href="film_e_scelta_campi.html" class="btn btn-primary text-center my-2">seleziona campi</a>
             </div>
         </div>
     </body>

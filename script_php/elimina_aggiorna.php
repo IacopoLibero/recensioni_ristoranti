@@ -1,18 +1,14 @@
 <?php
     include('connessione.php');  // Questo richiama la connessione quindi possiamo usare $conn in questa pagina
+?>
 
-    // Ottengo i valori della form
+<?php
     $idRecensione = $_POST["idrecensione"];
     $voto = $_POST["voto"];
-
-    // Verifica se l'idRecensione esiste nel database
-    $query = "SELECT * FROM recensioni WHERE idRecensione = $idRecensione";
-    $result = $conn->query($query);
-
-    if ($result->num_rows > 0) 
+    if(isset($_POST["agg"]))
     {
         // L'idRecensione esiste nel database, esegui l'aggiornamento
-        $sql = "UPDATE recensioni SET Voto = $voto WHERE idRecensione = $idRecensione";
+        $sql = "UPDATE RECENSIONI SET Voto = $voto WHERE IDRecensione = $idRecensione";
 
         if ($conn->query($sql)) 
         {
@@ -24,9 +20,18 @@
             // Errore nell'esecuzione dell'aggiornamento, redirect a fail.html
             header("Location: ..\status\\fail.html");
         }
-    } 
-    else 
-    {
-        // L'idRecensione non esiste nel database, redirect a fail.html
-        header("Location: ..\status\\fail.html");
     }
+    else
+    {
+        // Metto la query di DELETE in una stringa stando attendo alle stringhe (hanno bisogno degli apici)
+        $sql = "DELETE FROM RECENSIONI WHERE IDRecensione = $idRecensione";
+        if ($conn->query($sql)) 
+        {
+            header("Location: ..\status\success.html");
+        } 
+        else 
+        {
+            header("Location: ..\status\\fail.html");
+        }
+    }
+?>

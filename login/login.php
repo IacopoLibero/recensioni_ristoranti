@@ -1,6 +1,6 @@
 <?php
 
-include('../pagine_ph/connessione.php');  // Questo include il file di connessione in modo da poter utilizzare $conn in questa pagina
+include('../script_php/connessione.php');  // Questo include il file di connessione in modo da poter utilizzare $conn in questa pagina
 session_start();
 $username = $_POST['username'];
 $password = $_POST['pw'];
@@ -18,7 +18,7 @@ if ($result->num_rows > 0)
     if ($row['password'] == $password) 
     {
         // Reindirizza alla pagina del dashboard se la password è corretta
-        header("Location: ..\pagine_ph\dashboard.php");
+        header("Location: ..\\front-end\dashboard.php");
         $_SESSION['log'] = true;
         $_SESSION['user'] = $username;
     }
