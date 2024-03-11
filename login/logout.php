@@ -16,9 +16,8 @@
             <div class="col-12 ">
                 <?php
                     session_start();
-                    echo "<h1>Logout effettuato</h1>";
-                    session_unset();
-                    echo "<a href='..\index.php' class='btn btn-primary'>Torna al login</a>";
+                    $_SESSION['status']="Logout effettuato con successo";
+                    header("Location: ..\index.php")
                 ?>
             </div>
         </div>

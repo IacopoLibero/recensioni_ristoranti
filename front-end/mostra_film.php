@@ -21,6 +21,14 @@ include('..\script_php\connessione.php');  // Questo include la connessione in m
         <link rel="stylesheet" href="..\stylesheet.css">
 </head>
     <body>
+        <?php
+            session_start();
+            if ($_SESSION['log']== false) 
+            {
+                $_SESSION['status'] = "Devi fare il login per accedere a questa pagina";
+                header("Location: ..\index.php");
+            }
+        ?>
         <div class="text-center">
             <?php
                 // Verifica se è stato inviato un modulo
@@ -107,7 +115,7 @@ include('..\script_php\connessione.php');  // Questo include la connessione in m
                 <a href="dashboard.php" class="btn btn-primary text-center my-2">home</a>
             </div>
             <div class="text-center col-6">
-                <a href="film_e_scelta_campi.html" class="btn btn-primary text-center my-2">seleziona campi</a>
+                <a href="film_e_scelta_campi.php" class="btn btn-primary text-center my-2">seleziona campi</a>
             </div>
         </div>
     </body>

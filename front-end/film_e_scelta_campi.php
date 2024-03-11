@@ -15,6 +15,14 @@
 
     <title>Document</title>
 </head>
+    <?php
+    session_start();
+    if ($_SESSION['log']== false) 
+    {
+        $_SESSION['status'] = "Devi fare il login per accedere a questa pagina";
+        header("Location: ..\index.php");
+    }
+    ?>
     <body>
         
         <div class="row">

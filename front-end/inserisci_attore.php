@@ -15,6 +15,14 @@
     <title>Document</title>
 </head>
 <body>
+    <?php
+        session_start();
+        if ($_SESSION['log']== false) 
+        {
+            $_SESSION['status'] = "Devi fare il login per accedere a questa pagina";
+            header("Location: ..\index.php");
+        }
+    ?>
     <div class="row">
         <div class="card mx-auto my-5" style="width: 18rem; border-color: blue; border-style: solid;" >
             <div class="card-body text-center" >

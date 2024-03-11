@@ -39,7 +39,7 @@
                     if(isset($_SESSION['status']))
                     {
                         echo "<br>";
-                        if($_SESSION['status'] == "Registrazione effettuata")
+                        if($_SESSION['status'] == "Registrazione effettuata"||$_SESSION['status']=="Logout effettuato con successo")
                         {
                             echo "<label class='text-success'>".$_SESSION['status']."</label>";
                             session_unset();

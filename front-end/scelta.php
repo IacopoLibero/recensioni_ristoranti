@@ -57,7 +57,7 @@ include('..\script_php\connessione.php');  // Questo include la connessione in m
                     <br>
                     <div style="display:none;" id="nv">
                         <label for="voto">nuovo voto:</label><br>
-                        <input type="number" required class="form-control" min="1" max="5" name="voto" placeholder="5">
+                        <input type="number"  class="form-control" min="1" max="5" name="voto" placeholder="5">
                     </div>
                     <hr>
                     <input type="submit" class="btn btn-primary" value="elimina/aggiorna">

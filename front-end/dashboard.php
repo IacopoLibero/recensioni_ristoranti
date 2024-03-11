@@ -54,7 +54,7 @@
             <div class="card" sty text-centerle="width: 18rem;" style="border-color: blue; border-style: solid;">
                 <div class="card-body mx-auto">
                     <h5 class="card-title ">Inserisci nuovo attore</h5>
-                    <a href="..\front-end\inserisci_attore.html" class="btn btn-primary">go</a>
+                    <a href="..\front-end\inserisci_attore.php" class="btn btn-primary">go</a>
                 </div>
             </div>
         </div>
@@ -89,7 +89,7 @@
             <div class="card" sty text-centerle="width: 18rem;" style="border-color: blue; border-style: solid;">
                 <div class="card-body">
                     <h5 class="card-title">Visualizza tabelle</h5>
-                    <a href="..\front-end\scelta_tabella.html" class="btn btn-primary">go</a>
+                    <a href="..\front-end\scelta_tabella.php" class="btn btn-primary">go</a>
                 </div>
             </div>
         </div>
