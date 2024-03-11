@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<?php
+include('..\script_php\connessione.php');  // Questo include la connessione in modo da poter utilizzare $conn in questa pagina
+?>
 <html lang="en">
 
 <head>
@@ -32,7 +35,7 @@
             <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
             <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
         </svg>
-        <h1 class="text-center">Pagina di accesso al database cinema</h1>
+        <h1 class="text-center">Pagina di accesso al database recensioni</h1>
         <br>
         <div style="display:none;" id="prof" class="mx-3">
             <div class="card" style="width: 18rem;">
@@ -40,6 +43,19 @@
                     <h5 class="card-title">
                         <?php
                             echo "<p>Ciao @".$_SESSION['user']."</p>";
+                            $sql="SELECT count(*) FROM recensione JOIN utente ON recensione.idutente=utente.id WHERE username='".$_SESSION['user']."'";
+                            
+                            $result = mysqli_query($conn, $sql);
+                            $row = mysqli_fetch_array($result);
+                            $count = $row[0];
+                            if ($count == 0) {
+                                echo "Nessuna recensione presente";
+                            }
+                            else
+                            {
+                                echo "Numero di recensioni effettuate: ".$count;
+                            }
+                            
                         ?>
                     </h5>
                     <a href="../login/logout.php" class="btn btn-primary">Logout</a>
@@ -53,8 +69,8 @@
         <div class="text-center px-5 py-5 col-lg-4 col-md-6 col-12">
             <div class="card" sty text-centerle="width: 18rem;" style="border-color: blue; border-style: solid;">
                 <div class="card-body mx-auto">
-                    <h5 class="card-title ">Inserisci nuovo attore</h5>
-                    <a href="..\front-end\inserisci_attore.php" class="btn btn-primary">go</a>
+                    <h5 class="card-title ">Visualizza le tue recensioni</h5>
+                    <a href="..\front-end\visualizza_recensioni.php" class="btn btn-primary">go</a>
                 </div>
             </div>
         </div>
@@ -62,47 +78,37 @@
         <div class="text-center px-5 py-5 col-lg-4 col-md-6 col-12">
             <div class="card" sty text-centerle="width: 18rem;" style="border-color: blue; border-style: solid;">
                 <div class="card-body">
-                    <h5 class="card-title">Elimina proiezione</h5>
-                    <a href="..\front-end\elimina_proiezione.php" class="btn btn-primary">go</a>
+                    <h5 class="card-title">Cambia password</h5>
+                    <a href="..\front-end\cambio_password.php" class="btn btn-primary">go</a>
                 </div>
             </div>
         </div>
         <div class="text-center px-5 py-5 col-lg-4 col-md-6 col-12">
             <div class="card" sty text-centerle="width: 18rem;" style="border-color: blue; border-style: solid;">
                 <div class="card-body">
-                    <h5 class="card-title">Aggiorna recensione</h5>
-                    <a href="..\front-end\aggiorna_rec.php" class="btn btn-primary">go</a>
+                    <h5 class="card-title">Inserisci recensione</h5>
+                    <a href="..\front-end\inserisci_recensione.php" class="btn btn-primary">go</a>
                 </div>
             </div>
         </div>
         
-        <div class="text-center px-5 py-5 col-lg-4 col-md-6 col-12">
+        <div class="text-center px-5 py-5 col-lg-6 col-md-6 col-12">
             <div class="card" sty text-centerle="width: 18rem;" style="border-color: blue; border-style: solid;">
                 <div class="card-body">
-                    <h5 class="card-title">Aggiorna o elimina recensione</h5>
-                    <a href="..\front-end\scelta.php" class="btn btn-primary">go</a>
+                    <h5 class="card-title">Gestisci recensione</h5>
+                    <a href="..\front-end\gestisci_recensioni.php" class="btn btn-primary">go</a>
                 </div>
             </div>
         </div>
         
-        <div class="text-center px-5 py-5 col-lg-4 col-md-6 col-12">
+        <div class="text-center px-5 py-5 col-lg-6 col-md-6 col-12">
             <div class="card" sty text-centerle="width: 18rem;" style="border-color: blue; border-style: solid;">
                 <div class="card-body">
-                    <h5 class="card-title">Visualizza tabelle</h5>
-                    <a href="..\front-end\scelta_tabella.php" class="btn btn-primary">go</a>
+                    <h5 class="card-title">Visualizza recensioni ristorante</h5>
+                    <a href="..\front-end\visualizza_recensioni_rist.php" class="btn btn-primary">go</a>
                 </div>
             </div>
-        </div>
-        
-        <div class="text-center px-5 py-5 col-lg-4 col-md-6 col-12" >
-            <div class="card" sty text-centerle="width: 18rem;" style="border-color: blue; border-style: solid;">
-                <div class="card-body">
-                    <h5 class="card-title">Visualizza film e scelta campi</h5>
-                    <a href="..\front-end\mostra_film.php" class="btn btn-primary">go</a>
-                </div>
-            </div>
-        </div>
-        
+        </div>        
     </div>
 </body>
 </html>

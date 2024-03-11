@@ -8,6 +8,7 @@ $password = $_POST['pw'];
 // Imposta il login a false e l'utente a vuoto
 $_SESSION['log'] = false;
 $_SESSION['user'] = "";
+$_SESSION['id']="";
 // Verifica se l'username esiste nel database
 $checkQuery = "SELECT * FROM utente WHERE username = '$username'";
 $result = $conn->query($checkQuery);
@@ -18,9 +19,9 @@ if ($result->num_rows > 0)
     if ($row['password'] == $password) 
     {
         // Reindirizza alla pagina del dashboard se la password è corretta
-        header("Location: ..\\front-end\dashboard.php");
         $_SESSION['log'] = true;
         $_SESSION['user'] = $username;
+        header("Location: ..\\front-end\dashboard.php");
     }
     else 
     {

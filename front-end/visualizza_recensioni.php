@@ -31,45 +31,8 @@ include('..\script_php\connessione.php');  // Questo include la connessione in m
         ?>
         <div class="text-center">
             <?php
-                // Verifica se è stato inviato un modulo
-                if (isset($_POST['submit'])) 
-                {
-                    $campi="";
-                    // Verifica quali campi sono stati selezionati
-                    if(isset($_POST['CodFilm']) && $_POST['CodFilm'] != "")
-                    {
-                        $campi = $campi . "CodFilm, ";
-                    }
-                    if(isset($_POST['Titolo']) && $_POST['Titolo'] != "")
-                    {
-                        $campi = $campi . "Titolo, ";
-                    }
-                    if(isset($_POST['AnnoProduzione']) && $_POST['AnnoProduzione'] != "")
-                    {
-                        $campi = $campi . "AnnoProduzione, ";
-                    }
-                    if(isset($_POST['Nazionalita']) && $_POST['Nazionalita'] != "")
-                    {
-                        $campi = $campi . "Nazionalita, ";
-                    }
-                    if(isset($_POST['Regista']) && $_POST['Regista'] != "")
-                    {
-                        $campi = $campi . "Regista, ";
-                    }
-                    if(isset($_POST['Genere']) && $_POST['Genere'] != "")
-                    {
-                        $campi = $campi . "Genere, ";
-                    }
-                    $campi = substr($campi, 0, -2); // Rimuove l'ultima virgola e lo spazio
-                    $query = "SELECT $campi FROM film";
-                    $result = mysqli_query($conn, $query);
-                }
-                // Se non è stato inviato un modulo, esegui una query standard
-                else 
-                {
-                    $query = "SELECT * FROM film";
-                    $result = mysqli_query($conn, $query);
-                }
+                $query = "SELECT ristorante.nome,recensione.voto,recensione.data JOIN ristorante ON ristorante.codice=recensione.codiceristorante FROM recensioni";
+                $result = mysqli_query($conn, $query);
 
                 // Verifica se ci sono righe restituite dalla query
                 if (mysqli_num_rows($result) > 0) 
