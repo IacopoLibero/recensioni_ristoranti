@@ -30,40 +30,34 @@ include('..\script_php\connessione.php');  // Questo include la connessione in m
     <div class="row">
         <div class="card mx-auto my-5     " style="width: 18rem; border-color: blue; border-style: solid;">
             <div class="card-body text-center">
-                <h5 class="card-title">Aggiorna voto</h5>
-                <form method="POST" action="../script_php/aggiorna_recensione.php">
-                    ID voto: <br>
+                <h5 class="card-title">Aggiorna password</h5>
+                <form method="POST" action="../login/aggiorna_pw.php">
+                    Nuova password: <br>
+                    <input type="password" name="pw"  class="form-control" required placeholder="pw11">
                     <?php
-                        $query = "SELECT IDRecensione,Voto FROM recensioni";
-                        $result = mysqli_query($conn, $query);
-
-                        // Verifica se ci sono righe restituite dalla query
-                        if (mysqli_num_rows($result) > 0) 
+                        if(isset($_GET['Message']))
                         {
-                            
-                            echo "<div class='btn-group'> ";
-                            
-                            echo "<div class='btn-group'>";
-                            echo "<select name='idrecensione' class='btn dropdown-toggle text-center' style='background-color: aqua;' data-bs-toggle='dropdown' aria-expanded='false'>";
-                            // Stampa tutte le righe della tabella
-                            mysqli_data_seek($result, 0); // Reimposta il puntatore del risultato all'inizio
-                            while ($row = mysqli_fetch_assoc($result)) 
+                            echo "<br>";
+                            if($_GET['Message'] == "Password aggiornata")
                             {
-                                echo "<option value='".$row['IDRecensione']."'>".'ID: '.$row['IDRecensione'].' voto: '.$row['Voto']."</option>";
+                                echo "<label class='text-success'>".$_GET['Message']."</label>";
                             }
-                            
-                            // Chiude la tabella HTML
-                            echo "</select>";
-                            echo "</div>";
-                            echo "</div>";
+                            else
+                            {
+                                echo "<label class='text-danger'>".$_GET['Message']."</label>";
+                            }
                         }
-                        
                     ?>
-                    <br>
-                    Nuovo voto: <br>
-                    <input type="number" name="voto" min="1" max="5" class="form-control" required placeholder="5">
                     <hr>
-                    <input type="submit" class="btn btn-primary" value="Aggiorna">
+                    <div class="row text-center">
+                        <div>
+                            <a href="dashboard.php" class="btn btn-primary text-center my-2">home</a>
+                        </div>
+                        <div>
+                            <input type="submit" class="btn btn-primary" value="Aggiorna">
+                        </div>
+                    </div>
+                    
                 </form>
             </div>
         </div>

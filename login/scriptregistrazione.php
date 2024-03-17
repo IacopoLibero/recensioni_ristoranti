@@ -6,7 +6,7 @@
     $cognome = $_POST['cognome'];
     $email = $_POST['email'];
     $username = $_POST['username'];
-    $password = $_POST['pw'];
+    $password = hash("sha256",$_POST['pw']);
 
     # Controllo se l'utente è già registrato
     $checkQuery = "SELECT * FROM utente WHERE username = '$username'";

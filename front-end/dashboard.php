@@ -70,7 +70,7 @@ include('..\script_php\connessione.php');  // Questo include la connessione in m
             <div class="card" sty text-centerle="width: 18rem;" style="border-color: blue; border-style: solid;">
                 <div class="card-body mx-auto">
                     <h5 class="card-title ">Visualizza le tue recensioni</h5>
-                    <a href="..\front-end\visualizza_recensioni.php" class="btn btn-primary">go</a>
+                    <a href="..\front-end\visualizza_recensioni_utente.php" class="btn btn-primary">go</a>
                 </div>
             </div>
         </div>
