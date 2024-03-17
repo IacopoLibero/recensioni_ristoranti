@@ -87,7 +87,7 @@ include('..\script_php\connessione.php');  // Questo include la connessione in m
             <div class="card" sty text-centerle="width: 18rem;" style="border-color: blue; border-style: solid;">
                 <div class="card-body">
                     <h5 class="card-title">Inserisci recensione</h5>
-                    <a href="..\front-end\inserisci_recensione.php" class="btn btn-primary">go</a>
+                    <a href="..\front-end\inserisci_recensione_rist.php" class="btn btn-primary">go</a>
                 </div>
             </div>
         </div>
