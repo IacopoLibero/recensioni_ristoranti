@@ -60,26 +60,27 @@ include('..\script_php\connessione.php');  // Questo include la connessione in m
                 <input type="date" name="data" class="form-control" required><br>
 
                 <?php
-                        if(isset($_GET['Message']))
+                    if(isset($_GET['Message']))
+                    {
+                        echo"<br>";
+                        if (strpos($_GET['Message'], 'successo') !== false) 
                         {
-                            echo "<br>";
-                            if($_GET['Message'] == "Recensione inserita con successo")
-                            {
-                                echo "<label class='text-success'>".$_GET['Message']."</label>";
-                            }
-                            else
-                            {
-                                echo "<label class='text-danger'>".$_GET['Message']."</label>";
-                            }
+                            echo "<label class='text-success'>".$_GET['Message']."</label>";
                         }
-                    ?>
+                        else
+                        {
+                            echo "<label class='text-danger'>".$_GET['Message']."</label>";
+                        }
+                    }
+                ?>
                 <hr>
                 <input type="submit" class="btn btn-primary"  required value="Inserisci">
             </form>
             </div>
             <div class="row">
-            <div class="text-center col-12">
-                <a href="dashboard.php" class="btn btn-primary text-center my-2">home</a>
+                <div class="text-center col-12">
+                    <a href="dashboard.php" class="btn btn-primary text-center my-2">home</a>
+                </div>
             </div>
             
         </div>

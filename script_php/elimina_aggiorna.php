@@ -8,30 +8,32 @@
     if(isset($_POST["agg"]))
     {
         // L'idRecensione esiste nel database, esegui l'aggiornamento
-        $sql = "UPDATE RECENSIONI SET Voto = $voto WHERE IDRecensione = $idRecensione";
+        $sql = "UPDATE recensione SET voto = $voto WHERE idrecensione = $idRecensione";
 
         if ($conn->query($sql)) 
         {
-            // Aggiornamento riuscito, redirect a success.html
-            header("Location: ..\status\success.html");
+            $Message = urlencode("Recensione aggiornata con successo");
+            header("Location: ../front-end/gestisci_recensioni.php?Message=".$Message);
         } 
         else 
         {
-            // Errore nell'esecuzione dell'aggiornamento, redirect a fail.html
-            header("Location: ..\status\\fail.html");
+            $Message = urlencode("Recensione non aggiornata");
+            header("Location: ../front-end/gestisci_recensioni.php?Message=".$Message);
         }
     }
     else
     {
         // Metto la query di DELETE in una stringa stando attendo alle stringhe (hanno bisogno degli apici)
-        $sql = "DELETE FROM RECENSIONI WHERE IDRecensione = $idRecensione";
+        $sql = "DELETE FROM recensione WHERE idrecensione = $idRecensione";
         if ($conn->query($sql)) 
         {
-            header("Location: ..\status\success.html");
+            $Message = urlencode("Recensione eliminata con successo");
+            header("Location: ../front-end/gestisci_recensioni.php?Message=".$Message);
         } 
         else 
         {
-            header("Location: ..\status\\fail.html");
+            $Message = urlencode("Recensione non eliminata");
+            header("Location: ../front-end/gestisci_recensioni.php?Message=".$Message);
         }
     }
 ?>

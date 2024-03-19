@@ -37,8 +37,8 @@ include('..\script_php\connessione.php');  // Questo include la connessione in m
                     <?php
                         if(isset($_GET['Message']))
                         {
-                            echo "<br>";
-                            if($_GET['Message'] == "Password aggiornata")
+                            echo"<br>";
+                            if (strpos($_GET['Message'], 'successo') !== false) 
                             {
                                 echo "<label class='text-success'>".$_GET['Message']."</label>";
                             }
@@ -51,10 +51,10 @@ include('..\script_php\connessione.php');  // Questo include la connessione in m
                     <hr>
                     <div class="row text-center">
                         <div>
-                            <a href="dashboard.php" class="btn btn-primary text-center my-2">home</a>
+                            <input type="submit" class="btn btn-primary" value="Aggiorna">
                         </div>
                         <div>
-                            <input type="submit" class="btn btn-primary" value="Aggiorna">
+                            <a href="dashboard.php" class="btn btn-primary text-center my-2">home</a>
                         </div>
                     </div>
                     
