@@ -22,46 +22,61 @@ include('..\script_php\connessione.php');  // Questo include la connessione in m
     <div class="row">
         <div class="card mx-auto my-5" style="width: 18rem;border-color: blue; border-style: solid;">
             <div class="card-body text-center">
-                <h5 class="card-title">Elimina/aggiorna recensione</h5>
-                <form action="../script_php/elimina_aggiorna.php" method="post">
-                    ID voto: <br>
-                    <?php
-                        $query = "SELECT IDRecensione,Voto FROM recensioni";
-                        $result = mysqli_query($conn, $query);
+                <?php
+                    session_start();
+                    $sql="SELECT count(*) FROM recensione JOIN utente ON recensione.idutente=utente.id WHERE username = '".$_SESSION['user']."'";
+                    
+                    $result = mysqli_query($conn, $sql);
+                    $row = mysqli_fetch_array($result);
+                    $count = $row[0];
+                    if ($count == 0) 
+                    {
+                        echo "<h1 class='text-center my-5'>Nessuna recensione presente</h1>";
+                    }
+                    else 
+                    {
+                        echo "<h5 class='card-title'>Elimina/aggiorna recensione</h5>";
+                        echo "<form action='../script_php/elimina_aggiorna.php' method='post'>";
+                            echo "ID voto: <br>";   
+                                $query = "SELECT IDRecensione,Voto FROM recensioni";
+                                $result = mysqli_query($conn, $query);
 
-                        // Verifica se ci sono righe restituite dalla query
-                        if (mysqli_num_rows($result) > 0) 
-                        {
+                                // Verifica se ci sono righe restituite dalla query
+                                if (mysqli_num_rows($result) > 0) 
+                                {
+                                    
+                                    echo "<div class='btn-group'> ";
+                                    
+                                    echo "<div class='btn-group'>";
+                                    echo "<select name='idrecensione' class='btn dropdown-toggle text-center' style='background-color: aqua;' data-bs-toggle='dropdown' aria-expanded='false'>";
+                                    // Stampa tutte le righe della tabella
+                                    mysqli_data_seek($result, 0); // Reimposta il puntatore del risultato all'inizio
+                                    while ($row = mysqli_fetch_assoc($result)) 
+                                    {
+                                        echo "<option value='".$row['IDRecensione']."'>".'ID: '.$row['IDRecensione'].' voto: '.$row['Voto']."</option>";
+                                    }
+                                    
+                                    // Chiude la tabella HTML
+                                    echo "</select>";
+                                    echo "</div>";
+                                    echo "</div>";
+                                }
+                                
                             
-                            echo "<div class='btn-group'> ";
-                            
-                            echo "<div class='btn-group'>";
-                            echo "<select name='idrecensione' class='btn dropdown-toggle text-center' style='background-color: aqua;' data-bs-toggle='dropdown' aria-expanded='false'>";
-                            // Stampa tutte le righe della tabella
-                            mysqli_data_seek($result, 0); // Reimposta il puntatore del risultato all'inizio
-                            while ($row = mysqli_fetch_assoc($result)) 
-                            {
-                                echo "<option value='".$row['IDRecensione']."'>".'ID: '.$row['IDRecensione'].' voto: '.$row['Voto']."</option>";
-                            }
-                            
-                            // Chiude la tabella HTML
-                            echo "</select>";
-                            echo "</div>";
-                            echo "</div>";
-                        }
-                        
-                    ?>
-                    <br>
-                    <label for="agg">clicca qui se vuoi aggiornare il voto</label>
-                    <input id="agg" type="checkbox" name="agg">
-                    <br>
-                    <div style="display:none;" id="nv">
-                        <label for="voto">nuovo voto:</label><br>
-                        <input type="number"  class="form-control" min="1" max="5" name="voto" placeholder="5">
-                    </div>
-                    <hr>
-                    <input type="submit" class="btn btn-primary" value="elimina/aggiorna">
-                </form>
+                                echo "<br>";
+                                echo"<label for='agg'>clicca qui se vuoi aggiornare il votoecho</label>";
+                                echo"<input id='agg' type='checkbox' name='agg'>";
+                                echo"<br>";
+                                echo"<div style='display:none;' id='nv'>";
+                                echo"<label for='voto'>nuovo voto:</label><br>";
+                                echo"<input type='number'  class='form-control' min='1' max='5' name='voto' placeholder='5'>";
+                                echo"</div>";
+                                echo"<hr>";
+                                echo"<input type='submit' class='btn btn-primary' value='elimina/aggiorna'>";
+                
+                        echo"</form>";
+                    }
+                ?>     
             </div>
         </div>
     </div>
