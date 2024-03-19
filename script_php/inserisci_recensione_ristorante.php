@@ -12,8 +12,11 @@
     $utente = $utente['id'];
 
     // Controllo se l'utente ha già recensito il ristorante
-    $sql="SELECT COUNT(*) as numero FROM 'recensione' WHERE idutente = '".$utente."' AND codiceristorante = '".$codice_rist."'"; // Controllo se l'utente ha già recensito il ristorante
+    $sql="SELECT COUNT(*) as numero FROM recensione WHERE idutente = $utente AND codiceristorante = '".$codice_rist."'"; // Controllo se l'utente ha già recensito il ristorante
     $n_rec = $conn->query($sql);
+    $n_rec = $n_rec->fetch_assoc();
+    $n_rec = $n_rec['numero'];
+    
 
     if($n_rec> 0)
     {
@@ -27,8 +30,9 @@
     }
     else
     {
-        $sql = "INSERT INTO RECENSIONE (voto, data, idutente, codiceristorante) VALUES ('$voto', '$data', '$utente', '$codice_rist')";
-        $conn->query($sql);
+        
+        $sql = "INSERT INTO RECENSIONE (voto, data, idutente, codiceristorante) VALUES ($voto, '$data', $utente, '$codice_rist')";
+        $ris = $conn->query($sql);
         $Message = urlencode("Recensione inserita con successo");
         header("Location: ../front-end/inserisci_recensione_rist.php?Message=".$Message);
     }

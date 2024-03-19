@@ -31,24 +31,29 @@ include('..\script_php\connessione.php');  // Questo include la connessione in m
         ?>
         <div class="text-center">
             <?php
-                $sql="SELECT count(*) FROM recensione JOIN utente ON recensione.idutente=utente.id WHERE username='".$_SESSION['user']."'";
-                            
+                $sql="SELECT count(*) FROM recensione JOIN utente ON recensione.idutente=utente.id WHERE username = '".$_SESSION['user']."'";
+                
                 $result = mysqli_query($conn, $sql);
                 $row = mysqli_fetch_array($result);
                 $count = $row[0];
-                if ($count == 0) {
+                if ($count == 0) 
+                {
                     echo "<h1 class='text-center my-5'>Nessuna recensione presente</h1>";
                 }
                 else
                 {
-                    $query = "SELECT ristorante.nome,recensione.voto,recensione.data JOIN ristorante ON ristorante.codice=recensione.codiceristorante FROM recensione WHERE recensione.username = ".$_SESSION['user']."";
+                    $sql = "SELECT id FROM utente WHERE username = '".$_SESSION['user']."'"; // Ottengo il codice dell'utente
+                    $id = $conn->query($sql);
+                    $id = $id->fetch_assoc();
+                    $id = $id['id'];
+
+                    $query = "SELECT recensione.voto,recensione.data,ristorante.nome FROM recensione JOIN ristorante ON ristorante.codice=recensione.codiceristorante WHERE recensione.idutente = $id";
                     $result = mysqli_query($conn, $query);
 
-                    // Verifica se ci sono righe restituite dalla query
-                    if (mysqli_num_rows($result)>0) 
+                    if (mysqli_num_rows($result) > 0) 
                     {
                         // Inizia la tabella HTML
-                        echo "<table class='mx-auto text-center'>";
+                        echo "<table class='text-center mx-auto my-3'>";
                         
                         // Stampa la riga dell'intestazione con i nomi dei campi
                         echo "<tr>";
@@ -60,32 +65,29 @@ include('..\script_php\connessione.php');  // Questo include la connessione in m
                             echo "<th>" . $key . "</th>";
                         }
                         echo "</tr>";
-                        
-                        // Stampa tutte le righe della tabella
-                        mysqli_data_seek($result, 0); // Reimposta il puntatore del risultato all'inizio
-                        while ($row = mysqli_fetch_assoc($result)) 
+                    }
+                    // Stampa tutte le righe della tabella
+                    mysqli_data_seek($result, 0); // Reimposta il puntatore del risultato all'inizio
+                    while ($row = mysqli_fetch_assoc($result)) 
+                    {
+                        echo "<tr>";
+                        foreach ($row as $value) 
                         {
-                            echo "<tr>";
-                            foreach ($row as $value) 
-                            {
-                                echo "<td>" . $value . "</td>";
-                            }
-                            echo "</tr>";
+                            echo "<td>" . $value . "</td>";
                         }
-                        
-                        // Chiude la tabella HTML
-                        echo "</table>";
-                    } 
+                        echo "</tr>";
+                    }
+                    
+                    // Chiude la tabella HTML
+                    echo "</table>";
+                    
                 }
             ?>
         </div>
         <hr>
         <div class="row">
-            <div class="text-center col-6">
+            <div class="text-center col-12">
                 <a href="dashboard.php" class="btn btn-primary text-center my-2">home</a>
-            </div>
-            <div class="text-center col-6">
-                <a href="film_e_scelta_campi.php" class="btn btn-primary text-center my-2">seleziona campi</a>
             </div>
         </div>
     </body>

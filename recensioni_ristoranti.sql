@@ -73,7 +73,7 @@ INSERT INTO `ristorante` (`codice`, `nome`, `indirizzo`, `citta`) VALUES
 CREATE TABLE `utente` (
   `id` int(11) NOT NULL,
   `username` varchar(30) NOT NULL,
-  `password` varchar(30) NOT NULL,
+  `password` varchar(64) NOT NULL,
   `nome` varchar(30) NOT NULL,
   `cognome` varchar(30) NOT NULL,
   `email` varchar(30) NOT NULL,

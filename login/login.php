@@ -20,7 +20,7 @@ if ($result->num_rows > 0)
     // Ottieni la riga dell'utente
     $row = $result->fetch_assoc();
     // Verifica se la password è corretta
-    if (hash("sha256",$row['password'])== $passw) 
+    if ($row['password']== $passw) 
     {
         // Reindirizza alla pagina del dashboard se la password è corretta
         $_SESSION['log'] = true;
@@ -31,9 +31,7 @@ if ($result->num_rows > 0)
     {
         // Imposta il messaggio di stato e reindirizza alla pagina di indice se la password è incorretta
         $_SESSION['status'] = "Password errata";
-        $_SESSION['log'] = true;
-        $_SESSION['user'] = $username;
-        header("Location: ..\\front-end\dashboard.php");
+        header("Location: ..\index.php");
     }
 }
 else 

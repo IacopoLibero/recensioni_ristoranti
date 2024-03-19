@@ -33,7 +33,7 @@ include('..\script_php\connessione.php');  // Questo include la connessione in m
             <form method="POST" action="../script_php/inserisci_recensione_ristorante.php">
                 Nome ristorante: <br>
                 <?php
-                    $query = "SELECT nome FROM ristorante";
+                    $query = "SELECT nome,codice FROM ristorante";
                     $result = mysqli_query($conn, $query);
 
                     if (mysqli_num_rows($result) > 0) 
